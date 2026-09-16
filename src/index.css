@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — the entire look of the site is driven from here.
+   ------------------------------------------------------------------ */
+@theme {
+  --color-paper: #fff8e7;
+  --color-surface: #fffdf7;
+  --color-ink: #2b2110;
+  --color-soft: #5f4a24;
+  --color-muted: #806b45;
+  --color-line: #d8b15a;
+
+  --color-gold-50: #fff8df;
+  --color-gold-100: #f8e9b5;
+  --color-gold-200: #efd27b;
+  --color-gold-300: #e3b94e;
+  --color-gold-400: #d4a72c;
+  --color-gold-500: #c89416;
+  --color-gold-600: #b07808;
+  --color-gold-700: #8a5a00;
+  --color-gold-800: #5c3b00;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.theme-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/background.jpeg");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.28;
+}
+
+::selection {
+  background: #d6b26e;
+  color: #1c1812;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
